@@ -20,10 +20,9 @@ res.send(users);
 app.get('/api/users/:id',(req, res)=>{
 const user = users.find(u => u.id === parseInt(req.params.id));
 if(!user){
-    res.status(404).send('the user was not found');
-}else{
-    res.status(200).send(user);
+    return res.status(404).send('the user was not found');
 }
+    res.status(200).send(user);
 });
 
 
@@ -31,8 +30,7 @@ if(!user){
 
 app.post('/api/users',(req,res)=>{
     if(!req.body.name || !req.body.email){
-        res.status(400).send('Name or Email cannot be null');
-        return;
+       return res.status(400).send('Name or Email cannot be null');
     }
     const user = {
     id:users.length,
@@ -49,16 +47,14 @@ res.status(200).send(user);
 app.put('/api/users/:id', (req,res)=>{
     const user = users.find(u => u.id === parseInt(req.params.id));
 if(!user){
-    res.status(404).send('the user was not found');
-}else{
+   return res.status(404).send('the user was not found');
+}
     if(!req.body.name || !req.body.email){
-        res.status(400).send('Name or Email cannot be null');
-        return;
+        return res.status(400).send('Name or Email cannot be null');
     }
     user.name=req.body.name;
     user.email=req.body.email;
     res.status(200).send(user);
-}
 });
 
 
@@ -66,7 +62,7 @@ if(!user){
 app.delete('/api/users/:id',(req,res)=>{
     const user = users.find(u => u.id === parseInt(req.params.id));
     if(!user){
-        res.status(404).send('the user was not found');
+        return res.status(404).send('the user was not found');
     }
         const index=users.indexOf(user);
         users.splice(index,1);
