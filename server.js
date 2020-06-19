@@ -63,16 +63,14 @@ if(!user){
 
 
 //----------------------------------------http DELETE-----------------------------------------------------------------
-
-app.delete('api/users/:id',(req,res)=>{
-    const user = users.find(u => u.id === parseInt(req.param.id));
+app.delete('/api/users/:id',(req,res)=>{
+    const user = users.find(u => u.id === parseInt(req.params.id));
     if(!user){
         res.status(404).send('the user was not found');
-    }else{
-        const index=users.indexof(user);
+    }
+        const index=users.indexOf(user);
         users.splice(index,1);
         res.status(200).send(user);
-    }
 });
 
 
