@@ -83,6 +83,9 @@ app.post('/api/users', (req, res) => {
 // //------------------------------------------http PUT-----------------------------------------------------------------
 
 app.put('/api/users/:id', (req, res) => {
+    if(req.params.id==0){
+        return res.status(400).send('Access restrictes to id = 0');
+    }
 
     fs.readFile("users.json", function (err, data) {
 
@@ -114,6 +117,9 @@ app.put('/api/users/:id', (req, res) => {
 
 //----------------------------------------http DELETE-----------------------------------------------------------------
 app.delete('/api/users/:id', (req, res) => {
+    if(req.params.id==0){
+        return res.status(400).send('Access restrictes to id = 0');
+    }
     fs.readFile("users.json", function (err, data) {
 
         // Check for errors 

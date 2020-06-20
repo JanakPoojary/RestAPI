@@ -2,33 +2,8 @@
     "users": [
         {
             "id": 0,
-            "name": "akash",
-            "email": "akash@gmail.com"
-        },
-        {
-            "id": 1,
-            "name": "ayush",
-            "email": "ayush@gmail.com"
-        },
-        {
-            "id": 2,
-            "name": "divyesh",
-            "email": "divyesh@gmail.com"
-        },
-        {
-            "id": 3,
-            "name": "sanika",
-            "email": "sanika@gmail.com"
-        },
-        {
-            "id": 4,
-            "name": "Pankaj",
-            "email": "Pankaj@gmail.com"
-        },
-        {
-            "id": 5,
-            "name": "Pankaj",
-            "email": "Pankaj@gmail.com"
+            "name": "admin",
+            "email": "admin@gmail.com"
         }
     ]
 }
