@@ -2,11 +2,12 @@
 This is a demo rest api built using node.js and express.
         
 <ul>
-     <li><code>GET  ../api/users</code></a></li>
-     <li><code>GET  ../api/users/:id</code></a></li>
-     <li><code>POST ../api/users</code></li>
-     <li><code>DELETE ../api/users/:id</code></li>
-     <li><code>PUT ../api/users/:id</code></li>
+     <li><code>home ==> /</code></a></li>
+     <li><code>GET ==> /api/users</code></a></li>
+     <li><code>GET ==> /api/users/:id</code></a></li>
+     <li><code>POST ==> /api/users</code></li>
+     <li><code>DELETE ==> /api/users/:id</code></li>
+     <li><code>PUT ==> /api/users/:id</code></li>
 </ul>
 <h2><code>npm start</code> to run the server.</h2>
 <h3>Modification access to index '0' is restricted.</h3>
