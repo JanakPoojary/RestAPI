@@ -2,11 +2,7 @@ const express = require('express');
 const fs = require('fs');
 var app = express();
 app.use(express.json());
-// var users=[
-//     {id:0, name:"janak", email:"janak@gmail.com"},
-//     {id:1, name:"ayush", email:"ayush@gmail.com"},
-//     {id:2, name:"divyesh", email:"divyesh@gmail.com"}
-// ];
+
 app.use('/', express.static('public'));
 
 
