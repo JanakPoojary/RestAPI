@@ -90,15 +90,15 @@ app.put('/api/users/:id', (req, res) => {
 
         // Converting to JSON 
         const users = JSON.parse(data);
-        if (!users.users[parseInt(req.params.id)]) {
+        if (!users.users.find(u=>u.id===parseInt(req.params.id))) {
             return res.status(404).send('the user was not found');
         }
         if (!req.body.name || !req.body.email) {
             return res.status(400).send('Name or Email cannot be null');
         }
 
-        users.users[parseInt(req.params.id)].name = req.body.name;
-        users.users[parseInt(req.params.id)].email = req.body.email;
+        users.users.find(u=>u.id===parseInt(req.params.id)).name = req.body.name;
+        users.users.find(u=>u.id===parseInt(req.params.id)).email = req.body.email;
         fs.writeFile("users.json", JSON.stringify(users), err => {
 
             // Checking for errors 
@@ -106,7 +106,7 @@ app.put('/api/users/:id', (req, res) => {
 
             console.log("Done writing"); // Success 
         });
-        res.status(200).send(users.users[parseInt(req.params.id)]);
+        res.status(200).send(users.users.find(u=>u.id===parseInt(req.params.id)));
     });
 });
 
@@ -123,11 +123,11 @@ app.delete('/api/users/:id', (req, res) => {
 
         // Converting to JSON 
         const users = JSON.parse(data);
-        if (!users.users[parseInt(req.params.id)]) {
+        if (!users.users.find(u=>u.id===parseInt(req.params.id))) {
             return res.status(404).send('the user was not found');
         }
         const user = users.users.find(u => u.id === parseInt(req.params.id));
-        const index = users.users.indexOf(users.users[parseInt(req.body.param)]);
+        const index = users.users.indexOf(users.users.find(u=>u.id===parseInt(req.params.id)));
         users.users.splice(index, 1);
         fs.writeFile("users.json", JSON.stringify(users), err => {
 
