@@ -56,7 +56,7 @@ app.post('/api/users', (req, res) => {
         // Converting to JSON 
         const users = JSON.parse(data);
         const user = {
-            id: users.users.length,
+            id: users.users[users.users.length-1].id+1,
             name: req.body.name,
             email: req.body.email
         };
